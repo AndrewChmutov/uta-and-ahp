@@ -2,6 +2,7 @@
 name = "uta-ahp"
 version = "0.0.1"
 dependencies = [
+    "gurobipy>=12.0.1",
     "pandas>=2.2.3",
     "typer>=0.15.2",
 ]
