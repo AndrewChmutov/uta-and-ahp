@@ -1,0 +1,52 @@
+[project]
+name = "uta-ahp"
+version = "0.0.1"
+dependencies = [
+    "pandas>=2.2.3",
+    "typer>=0.15.2",
+]
+# dependencies = []
+
+[build-system]
+requires = ["setuptools", "setuptools_scm"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+include = [
+    "uta_ahp",
+]
+
+[tool.ruff]
+preview = true
+line-length = 79
+
+[tool.ruff.lint]
+select = [
+    "ANN001",   # Missing type annotation for function argument
+    "ANN2",     # Missing return type annotation
+    "DOC",      # Pydoclint
+    "D",        # Pydocstyle
+    "E",        # Pycodestyle
+    "F",        # Pyflakes
+    "I",        # Isort
+    "Q",        # Quotes
+]
+
+ignore = [
+    "D1",       # Missing docstrings
+]
+
+[tool.ruff.lint.flake8-quotes]
+inline-quotes = "double"
+
+[tool.ruff.lint.pydocstyle]
+convention = "google"
+
+[tool.ruff.format]
+quote-style = "double"
+
+[tool.pydoclint]
+style = "google"
+allow-init-docstring = true
+arg-type-hints-in-signature = true
+arg-type-hints-in-docstring = false
