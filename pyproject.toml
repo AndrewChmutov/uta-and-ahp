@@ -2,10 +2,16 @@
 name = "uta-ahp"
 version = "0.0.1"
 dependencies = [
+    "gurobipy>=12.0.1",
+    "matplotlib>=3.10.1",
     "pandas>=2.2.3",
+    "seaborn>=0.13.2",
     "typer>=0.15.2",
 ]
 # dependencies = []
+
+[project.scripts]
+uta-ahp = "uta_ahp.__main__:app"
 
 [build-system]
 requires = ["setuptools", "setuptools_scm"]

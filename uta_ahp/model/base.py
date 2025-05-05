@@ -6,7 +6,6 @@ from typing import TYPE_CHECKING, ClassVar, Self
 from typer import Typer
 
 if TYPE_CHECKING:
-    import pandas as pd
     from typer import Typer
 
 
@@ -32,6 +31,3 @@ class Model(ABC):
     @classmethod
     def register_command(cls, app: Typer) -> None:
         app.command(name=cls.name())(cls.command)
-
-    @abstractmethod
-    def solve(self, dataset: pd.DataFrame) -> pd.Series: ...
