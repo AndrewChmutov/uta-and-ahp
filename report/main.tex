@@ -1,0 +1,83 @@
+\documentclass{article}
+\usepackage[a4paper, total={6in, 8in}]{geometry}
+\usepackage{amsfonts}
+\usepackage{csvsimple}
+\usepackage{graphicx}
+\usepackage{caption}
+\graphicspath{ {../img/} }
+
+\title{UTA and AHP}
+\author{REDACTED}
+\begin{document}
+\maketitle
+
+\section{Dataset}
+
+\subsection{Criteria}
+\subsubsection{Description}
+Due to the fact that extracted features are strongly correlated between each other, the considered set of them is reduced from 21 to 4:
+
+\begin{enumerate}
+    \item \textit{v(g)} - \textit{"McCabe"} \textbf{cyclomatic complexity} - number of linearly independent paths in the program's source code,
+    \item \textit{iv(g)} - \textit{"McCabe"} \textbf{design complexity} - similar to cyclomatic complexity, but quantifies inter-module calls,
+    \item \textit{uniq\_Op} - \textbf{number of unique operators} - essentially crucial when running fault critical software on computationally limited hardware,
+    \item \textit{i} - \textit{"Halstead"} intelligence - derived from a formula that aggregates from basic features.
+\end{enumerate}
+
+\subsubsection{Types \& Importance}
+
+\begin{center}
+\begin{tabular}{ |c|c|c|c| }
+    \textbf{Criterion}&  \textbf{Type} & \textbf{Domain} \\
+    \textit{v(g)} & cost & $\mathbb{N}$ \\
+    \textit{iv(g)} & cost & $\mathbb{N}$ \\
+    \textit{uniq\_Op} & cost & $\mathbb{N}$ \\
+    \textit{i} & gain & $\mathbb{R} \cap [0, +\infty)$ \\
+\end{tabular}
+\end{center}
+
+\section{UTA}
+
+The following comparisons were conducted preliminarily:
+
+\begin{center}
+    \begin{tabular}{|c|c|c|c|}%
+    \textbf{Alternative 1} & \textbf{Alternative 2} & \textbf{Relation}
+    \csvreader[head to column names]{../data/pairwise.csv}{}
+    {\\\a & \b & \value}
+    \end{tabular}
+\end{center}
+
+\
+
+where:
+
+\begin{itemize}
+    \item $P$ = preference
+    \item $I$ = indifference
+\end{itemize}
+
+
+The in-depth reasoning about the aforementioned pairwise comparisons is available in the previous report. However, for the sake of introducing inconsistencies, \textbf{the last comparison is added artificially to create a cycle}.
+
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.3]{uta}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.3]{uta-discriminate}
+\end{figure}
+
+Note: each feature does not have defined notation unit.
+
+\section{AHP}
+
+Unfortunately, this algorithm was not implemented in this assignment.
+
+\section{Comparison}
+
+
+
+\end{document}
